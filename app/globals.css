@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  height: 100vh;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+@layer components {
+  .head_text {
+    @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+  }
+
+  .modal_head_text {
+    @apply mt-2 text-xl font-semibold leading-[1.15] text-black sm:text-2xl;
+  }
+
+  .para_text {
+    @apply my-2 text-lg font-satoshi leading-[1.15] text-black sm:text-2xl;
+  }
+
+  .orange_gradient {
+    @apply bg-gradient-to-r from-amber-500 via-orange-600 to-yellow-500 bg-clip-text text-transparent;
+  }
+
+  .green_gradient {
+    @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+  }
+
+  .blue_gradient {
+    @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+  }
+
+  .desc {
+    @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-4xl;
+  }
+}
