@@ -27,7 +27,7 @@ Book Store application with React-SSR - NextJS.
 1. Single page with book details, the main page shows a book list with book name, price, category and a delete button at the end for each book. There is an add button at the top so the user can add a book.
 2. Once you click the add a book button, a modal pops up, letting the user to add a book (name, price, category and description).
 3. The book is clickable, if the user clicks the book, it will show a popup modal, letting the user modify the book name, price, category and description. After modification: the book details should be updated in the main page.
-4. Once clicked delete button, the book gets deleted from the main listing page
+4. Once clicked on the delete button, a prompt modal window pops up and asks for confirmation. If Yes, the book gets deleted from the main listing page.
 
 Tools Used: Redux and Hooks (Server Side Rendering - NextJS)
 
