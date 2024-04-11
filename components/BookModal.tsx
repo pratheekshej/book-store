@@ -8,12 +8,15 @@ import { Ref, useEffect, useRef, useState } from "react"
 import { useDispatch, useSelector } from "react-redux";
 
 const BookModal = () => {
+    // Essential Hooks
     const [mandatoryFieldsError, setMandatoryFieldsError] = useState('');
-    const modalData: ModalProps = useSelector((state: RootState) => state.bookModal.modalData);
-    const bookList: Array<Book> = useSelector((state: RootState) => state.books.bookList);
-    const dispatch = useDispatch();
     const dialogRef: Ref<any> = useRef();
     const bookForm: Ref<any> = useRef();
+    // Redux Hooks
+    const dispatch = useDispatch();
+    const modalData: ModalProps = useSelector((state: RootState) => state.bookModal.modalData);
+    const bookList: Array<Book> = useSelector((state: RootState) => state.books.bookList);
+    // App Var Declarations
     const { title, btnText, action } = modalData;
 
     const handleSubmit = (event: any) => {
@@ -63,7 +66,9 @@ const BookModal = () => {
 
     const handleClose = () => {
         setMandatoryFieldsError('');
-        dialogRef.current.close();
+        if (dialogRef.current) {
+            dialogRef.current.close();
+        }
     }
 
     useEffect(() => {
@@ -85,10 +90,13 @@ const BookModal = () => {
                 dialogRef.current.showModal();
             }
         }
+        return () => {
+            handleClose();
+        }
     }, [modalData]);
 
     return (
-        <dialog ref={dialogRef} className="p-8 rounded shadow-md w-2/6">
+        <dialog ref={dialogRef} className="p-8 rounded shadow-md w-2/6 backdrop:bg-gray-900/50">
             <div className="flex flex-col">
                 {
                     (action !== 'delete') &&

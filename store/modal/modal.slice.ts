@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
 
 export interface CounterState {
-    modalData: ModalProps | null;
+    modalData: ModalProps;
 }
 
 const initialState: CounterState = {
@@ -23,7 +23,7 @@ export const modalSlice = createSlice({
             };
         },
         closeModalData: (state, action: PayloadAction<any>) => {
-            state.modalData = null;
+            state.modalData = action.payload;
         }
     },
 })
