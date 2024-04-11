@@ -66,7 +66,7 @@ const BookModal = () => {
 
     const handleClose = () => {
         setMandatoryFieldsError('');
-        if (dialogRef.current) {
+        if (dialogRef && dialogRef.current) {
             dialogRef.current.close();
         }
     }
